@@ -20,7 +20,7 @@ function App() {
     Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response)=> {
       setPokemon({
         name: pokemonName, 
-        species: response.data.species, 
+        species: response.data.species.name, 
         img: response.data.sprites.front_default, 
         hp: response.data.stats[0].base_stat,
         attack: response.data.stats[1].base_stat,
@@ -49,7 +49,12 @@ function App() {
           ) : (
             <>
               <h1>{pokemon.name}</h1>
-              <img src={pokemon.img} />
+              <img src={pokemon.img} alt='pokemon img' />
+              <h3>Species: {pokemon.species}</h3>
+              <h3>Type: {pokemon.type}</h3>
+              <h3>HP: {pokemon.hp}</h3>
+              <h3>Attack: {pokemon.attack}</h3>
+              <h3>Defense: {pokemon.defense}</h3>
             </>
           )}
       </div>
