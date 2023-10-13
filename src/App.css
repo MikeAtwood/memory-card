@@ -3,14 +3,18 @@
   justify-content: center;
   text-align: center;
   background-color: rgb(236, 31, 31);
-  height: 100vh;
+  align-items: center;
+  flex-direction: column;
 }
 
 .header-container {
+  justify-content: center;
   background-color: rgb(241, 81, 81);
-  height: 15vh;
+  height: 17vh;
   width: 500px;
   border-radius: 15px;
+  flex-direction: column;
+  margin: 10px;
 }
 
 input {
