@@ -17,3 +17,9 @@ input {
   border-radius: 5px;
   border: none;
 }
+
+.submit-search {
+  border-radius: 5px;
+  border: none;
+  margin: 6px;
+}
