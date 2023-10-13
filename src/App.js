@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Axios from 'axios';
+import PokemonList from './components/PokemonList';
 
 function App() {
 
@@ -33,30 +34,33 @@ function App() {
 
   return (
     <div className="App">
-      <div className='header-container'>
-        <h1>Pokemon Dexter</h1>
-        <input type='text' 
-          placeholder='Search Pokemon' 
-          onChange={(event) => {
-            setPokemonName(event.target.value)
-          }}
-        />
-        <button onClick={searchPokemon} className='submit-search'>Submit</button>
-      </div>
-      <div className='DisplaySection'>
-          {!pokemonChosen ? (
-          <h1> Please choose a Pokemon</h1>
-          ) : (
-            <>
-              <h1>{pokemon.name}</h1>
-              <img src={pokemon.img} alt='pokemon img' />
-              <h3>Species: {pokemon.species}</h3>
-              <h3>Type: {pokemon.type}</h3>
-              <h3>HP: {pokemon.hp}</h3>
-              <h3>Attack: {pokemon.attack}</h3>
-              <h3>Defense: {pokemon.defense}</h3>
-            </>
-          )}
+      <div className='main-container'>
+        <div className='header-container'>
+          <h1>Pokemon Dexter</h1>
+          <input type='text' 
+            placeholder='Search Pokemon' 
+            onChange={(event) => {
+              setPokemonName(event.target.value)
+            }}
+          />
+          <button onClick={searchPokemon} className='submit-search'>Submit</button>
+        </div>
+        <div className='DisplaySection'>
+            {!pokemonChosen ? (
+            <h1> Please choose a Pokemon</h1>
+            ) : (
+              <>
+                <h1>{pokemon.name}</h1>
+                <img src={pokemon.img} alt='pokemon img' />
+                <h3>Species: {pokemon.species}</h3>
+                <h3>Type: {pokemon.type}</h3>
+                <h3>HP: {pokemon.hp}</h3>
+                <h3>Attack: {pokemon.attack}</h3>
+                <h3>Defense: {pokemon.defense}</h3>
+              </>
+            )}
+        </div>
+        <PokemonList />
       </div>
     </div>
   );

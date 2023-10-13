@@ -1,12 +1,10 @@
-import { useEffect } from "react"
 
-const PokemonList = () => {
-    useEffect(() => {
-    })
 
+const PokemonList = ({ data, apiUrl }) => {
+   
     return (
-        <div>
-
+        <div className="pokemon-list">
+            <h1>POKEDEX</h1>
         </div>
     )
 }
