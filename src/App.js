@@ -7,9 +7,9 @@ function App() {
   const [ pokemonName, setPokemonName ] = useState("")
   const [ pokemonChosen, setPokemonChosen ] = useState(false)
   const [ pokemon, setPokemon ] = useState({
-    name: pokemonName, 
+        name: "", 
         species: "", 
-        image: "", 
+        img: "", 
         hp: "",
         attack: "",
         defense: "",
@@ -21,7 +21,7 @@ function App() {
       setPokemon({
         name: pokemonName, 
         species: response.data.species, 
-        image: response.data.sprites.front_default, 
+        img: response.data.sprites.front_default, 
         hp: response.data.stats[0].base_stat,
         attack: response.data.stats[1].base_stat,
         defense: response.data.stats[2].base_stat,
@@ -44,7 +44,14 @@ function App() {
         <button onClick={searchPokemon} className='submit-search'>Submit</button>
       </div>
       <div className='DisplaySection'>
-          {!pokemonChosen ? (<h1> Please choose a Pokemon</h1>) : (<h1>{pokemonName}</h1>)}
+          {!pokemonChosen ? (
+          <h1> Please choose a Pokemon</h1>
+          ) : (
+            <>
+              <h1>{pokemon.name}</h1>
+              <img src={pokemon.img} />
+            </>
+          )}
       </div>
     </div>
   );
