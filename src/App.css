@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 200px;
+  height: 100px;
 }
 
 input {
@@ -51,4 +51,16 @@ input {
 
 .DisplaySection {
   min-height: 220px;
+}
+
+.pokedex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokemon-box {
+  width: 100px;
+  height: 100px;  
+  margin: 5px;
 }
