@@ -29,7 +29,20 @@ function App() {
         type: response.data.types[0].type.name,
       })
       setPokemonChosen(true)
-    })
+    }) 
+  }
+
+  const handlePokemonClick = async (clickedPokemon) => {
+      setPokemon({
+        name: clickedPokemon.name,
+        species: clickedPokemon.species,
+        img: clickedPokemon.img,
+        hp: clickedPokemon.hp,
+        attack: clickedPokemon.attack,
+        defense: clickedPokemon.defense,
+        type: clickedPokemon.type,
+      })
+      setPokemonChosen(true)
   }
 
   return (
@@ -60,7 +73,7 @@ function App() {
               </>
             )}
         </div>
-        <PokemonList />
+        <PokemonList onPokemonClick={handlePokemonClick}/>
       </div>
     </div>
   );

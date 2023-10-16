@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-const PokemonList = () => {
+const PokemonList = ({ onPokemonClick }) => {
     const [ pokemonDex, setPokemonDex ] = useState([])
 
     useEffect(() => {
         const fetchPokemonList = async () => {
             try {
-                const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=100")
+                const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=150")
                 const pokemonList = response.data.results;
 
                 const pokemonDetails = await Promise.all(
@@ -28,12 +28,16 @@ const PokemonList = () => {
         fetchPokemonList()
     }, [])
 
+    const handleClick = (pokemon) => {
+        onPokemonClick(pokemon)
+    }
+
     return (
         <div className="pokemon-list">
             <h1>POKEDEX</h1>
             <div className="pokedex-container">
                 {pokemonDex.map((pokemon) => (
-                    <div key={pokemon.name} className="pokemon-box">
+                    <div key={pokemon.name} className="pokemon-box" onClick={() => handleClick(pokemon)}>
                         <img src={pokemon.sprite} alt={pokemon.name} />
                         <p>{pokemon.name}</p>
                     </div>
