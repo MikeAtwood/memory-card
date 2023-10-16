@@ -32,7 +32,7 @@ function App() {
     }) 
   }
 
-  const handlePokemonClick = async (clickedPokemon) => {
+  const handlePokemonClick = (clickedPokemon) => {
       setPokemon({
         name: clickedPokemon.name,
         species: clickedPokemon.species,
@@ -73,7 +73,7 @@ function App() {
               </>
             )}
         </div>
-        <PokemonList onPokemonClick={handlePokemonClick}/>
+        <PokemonList onPokemonClick={handlePokemonClick} />
       </div>
     </div>
   );
