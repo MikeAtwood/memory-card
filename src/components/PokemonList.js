@@ -15,9 +15,8 @@ const PokemonList = ({ onPokemonClick }) => {
                         const res = await axios.get(pokemon.url)
                         return {
                             name: pokemon.name,
-                            img: response.data.sprites.front_default, 
                             species: res.data.species.name,
-                            sprite: res.data.sprites.front_default,
+                            img: res.data.sprites.front_default,
                             hp: res.data.stats[0].base_stat,
                             attack: res.data.stats[1].base_stat,
                             defense: res.data.stats[2].base_stat,
@@ -43,7 +42,7 @@ const PokemonList = ({ onPokemonClick }) => {
             <div className="pokedex-container">
                 {pokemonDex.map((pokemon) => (
                     <div key={pokemon.name} className="pokemon-box" onClick={() => handleClick(pokemon)}>
-                        <img src={pokemon.sprite} alt={pokemon.name} />
+                        <img src={pokemon.img} alt={pokemon.name} />
                         <p>{pokemon.name}</p>
                     </div>
                 ))}
