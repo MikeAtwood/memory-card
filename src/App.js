@@ -33,15 +33,7 @@ function App() {
   }
 
   const handlePokemonClick = (clickedPokemon) => {
-      setPokemon({
-        name: clickedPokemon.name,
-        species: clickedPokemon.species,
-        img: clickedPokemon.img,
-        hp: clickedPokemon.hp,
-        attack: clickedPokemon.attack,
-        defense: clickedPokemon.defense,
-        type: clickedPokemon.type,
-      })
+      setPokemon(clickedPokemon)
       setPokemonChosen(true)
   }
 

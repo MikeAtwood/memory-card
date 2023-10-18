@@ -15,8 +15,13 @@ const PokemonList = ({ onPokemonClick }) => {
                         const res = await axios.get(pokemon.url)
                         return {
                             name: pokemon.name,
-                            id: res.data.id,
+                            img: response.data.sprites.front_default, 
+                            species: res.data.species.name,
                             sprite: res.data.sprites.front_default,
+                            hp: res.data.stats[0].base_stat,
+                            attack: res.data.stats[1].base_stat,
+                            defense: res.data.stats[2].base_stat,
+                            type: res.data.types[0].type.name,
                         }
                     })
                 )
